@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ImagePlus, Trash } from "lucide-react";
 import Image from "next/image";
+import { ImagePlus, Trash } from "lucide-react";
+import { useEffect, useState } from "react";
 import { CldUploadWidget } from "next-cloudinary";
 
 import { Button } from "@/components/ui/button";
@@ -53,7 +53,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
           </div>
         ))}
       </div>
-      <CldUploadWidget onUpload={onUpload} uploadPreset="whkvjhyw">
+      <CldUploadWidget onSuccess={onUpload} uploadPreset="whkvjhyw">
         {({ open }) => {
           return (
             <Button
