@@ -158,7 +158,17 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                   <ImageUpload
                     value={field.value.map((image) => image.url)}
                     disabled={loading}
-                    onChange={(url) => field.onChange([...field.value, { url }])}
+                    onChange={(url) => {
+                      console.log("Current images:", field.value);
+                      console.log("Adding URL:", url);
+                  
+                      // اضافه کردن URL جدید به آرایه
+                      const updatedImages = [...field.value, { url }];
+                      
+                      console.log("Updated images:", updatedImages);
+                  
+                      field.onChange(updatedImages);
+                    }}
                     onRemove={(url) => field.onChange([...field.value.filter((current) => current.url !== url)])}
                   />
                 </FormControl>
